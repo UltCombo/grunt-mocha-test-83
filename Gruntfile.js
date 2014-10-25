@@ -11,16 +11,11 @@ module.exports = function(grunt) {
 			},
 			src: 'src/test/*.js',
 		},
-		watch: {
-			options: {
-				spawn: false,
-			},
-			all: {
-				files: 'src/**',
-				tasks: ['mochaTest'],
-			},
-		},
 	});
 
-	grunt.registerTask('default', ['mochaTest', 'watch']);
+	grunt.registerTask('runMochaTest', '', function() {
+		grunt.task.run(['mochaTest']);
+	});
+
+	grunt.registerTask('default', ['mochaTest', 'runMochaTest']);
 };
